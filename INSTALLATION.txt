@@ -70,7 +70,7 @@ e.g., 'm/^NHA-\d{6}$/' with match a 6 digit barcode prefixed with NHA- ("NHA-123
 After script is finished running:
 Renamed files will be copied to a new directory ("renamed_date+time") within the directory containing the original files. The original files are not deleted. In the directory containing the original image files, a log file will be created (csv formatted) reporting success or failure for each file.
 
-The script has been tested on Fedora 19.
+The script has been tested on OSX 7.5.
 
 
 *****************************
