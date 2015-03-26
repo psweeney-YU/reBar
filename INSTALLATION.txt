@@ -1,0 +1,105 @@
+reBar.pl vers. 0.9
+
+*****************************
+WINDOWS INSTALLATION
+
+1) Install ImageMagick (http://www.imagemagick.org/).
+Download & installation instructions are here: http://www.imagemagick.org/script/binary-releases.php#windows.
+
+2) Install ZBar software suite (http://zbar.sourceforge.net).
+Download: http://zbar.sourceforge.net/download.html
+Install by double clicking installer. On Windows, the default location is fine: C:\Program Files (x86)\ZBar OR C:\Program Files\ZBar.
+
+3) Install Strawberry Perl (a perl environment for MS Windows).
+Download: http://strawberryperl.com/
+Install by double clicking installer.
+After installation, open Command Prompt window or PowerShell and type "perl -v" at the prompt. If installation was successful, you should see some text with perl version number and other information.
+
+4) Download reBar.pl script to a directory on your computer.
+
+5) Modify variables in reBar.pl.
+Change ZBar path variable on line 42 to point to location of zbarimg file (in ZBar the installation location).
+Change symbology variable on line 43 to match that of the barcodes in the image. The default is Code 39.
+Change archive file name extension on line 44 to match that of your institution's archive file format (e.g., ".dng", ".cr2", ".tif", etc).
+Change regular expression on line 78 to match the format of your institution’s barcode.
+e.g., 'm/^(PBRU|CBRU)\d{8}$/' will match an 8 digit barcode prefixed with PBRU or CBRU ("PBRU12345678" or "CBRU12345678").
+e.g., 'm/^\d{7}$/' will match a 7 digit barcode with no prefix ("1234567").
+e.g., 'm/^NHA-\d{6}$/' with match a 6 digit barcode prefixed with NHA- ("NHA-123456").
+
+6) To run script:
+	1. Open Command Prompt window or PowerShell.
+	2. Change into directory containing files (chdir "C:\path\to\image\files").
+	3. Run script (perl "C:\path\to\script\reBar.pl").
+
+After script is finished running:
+Renamed files will be copied to a new directory ("renamed_date+time") within the directory containing the original files. The original files are not deleted. In the directory containing the original image files, a log file will be created (csv formatted) reporting success or failure for each file.
+
+The perl script has been tested on Windows 7 & 8.
+
+
+*****************************
+OSX INSTALLATION
+
+1) Install ImageMagick (http://www.imagemagick.org/).
+It is possible to install ImageMagick from the source code without the use of a package manager, but there are many dependencies and possible configuration steps, which vary depending on your OS. The dependencies include: xz, libtool, pkg-config, jpeg, libpng, freetype.
+
+The ImageMagick website has binary for the latest version of OSX: http://www.imagemagick.org/script/binary-releases.php#macosx.
+
+If you are using an older version of OSX, consider the Homebrew (http://brew.sh/) package manager.
+
+2) Install ZBar software suite (http://zbar.sourceforge.net).
+
+Zbar does not provide an installer package for Mac OSX, so it must be installed from the source code. There are many dependencies and the installation configuration will depend on the particular version of OSX that you are using. The dependencies include: jasper, libtiff, little-cms2, dcraw, gettext, libffi, glib, little-cms. Consider using a package manager such as Homebrew (http://brew.sh/) to install Zbar. The source code can be downloaded here: http://zbar.sourceforge.net/download.html.
+
+3) Download reBar.pl script to a directory on your computer.
+
+4) Modify variables in reBar.pl
+Change ZBar path variable on line 42 to point to location of zbarimg file (e.g., /usr/local/bin/zbarimg).
+Change symbology variable on line 43 to match that of the barcodes in the image. The default is Code 39.
+Change archive file name extension on line 44 to match that of your institution's archive file format (e.g., ".dng", ".cr2", ".tif", etc).
+Change regular expression on line 78 to match the format of your institution’s barcode.
+e.g., 'm/^(PBRU|CBRU)\d{8}$/' will match an 8 digit barcode prefixed with PBRU or CBRU ("PBRU12345678" or "CBRU12345678").
+e.g., 'm/^\d{7}$/' will match a 7 digit barcode with no prefix ("1234567").
+e.g., 'm/^NHA-\d{6}$/' with match a 6 digit barcode prefixed with NHA- ("NHA-123456").
+
+5) To run script:
+	1. Open a Terminal.
+	2. Change into directory containing files (e.g., 'cd /User/joe/images/').
+	3. Run the perl script by typing reBar.pl at the prompt. At the prompt, you may need to supply the path to the perl script, if it is not in your $PATH environment variable.
+
+After script is finished running:
+Renamed files will be copied to a new directory ("renamed_date+time") within the directory containing the original files. The original files are not deleted. In the directory containing the original image files, a log file will be created (csv formatted) reporting success or failure for each file.
+
+The script has been tested on Fedora 19.
+
+
+*****************************
+LINUX INSTALLATION
+
+1) Install ImageMagick (http://www.imagemagick.org/).
+The ImageMagick website has binary releases for some variations of Unix and the latest version of OSX: http://www.imagemagick.org/script/binary-releases.php#unix.
+
+2) Install ZBar software suite (http://zbar.sourceforge.net).
+
+The ZBar website provides a binary installer for some variations of Unix: http://zbar.sourceforge.net/download.html.
+
+3) Download reBar.pl script to a directory on your computer.
+
+4) Modify variables in reBar.pl
+Change ZBar path variable on line 42 to point to location of zbarimg file (e.g., /usr/local/bin/zbarimg).
+Change symbology variable on line 43 to match that of the barcodes in the image. The default is Code 39.
+Change archive file name extension on line 44 to match that of your institution's archive file format (e.g., ".dng", ".cr2", ".tif", etc).
+Change regular expression on line 78 to match the format of your institution’s barcode.
+e.g., 'm/^(PBRU|CBRU)\d{8}$/' will match an 8 digit barcode prefixed with PBRU or CBRU ("PBRU12345678" or "CBRU12345678").
+e.g., 'm/^\d{7}$/' will match a 7 digit barcode with no prefix ("1234567").
+e.g., 'm/^NHA-\d{6}$/' with match a 6 digit barcode prefixed with NHA- ("NHA-123456").
+
+5) To run script:
+	1. Open a Terminal.
+	2. Change into directory containing files (e.g., 'cd /User/joe/images/').
+	3. Run the perl script by typing reBar.pl at the prompt. At the prompt, you may need to supply the path to the script, if it is not in your $PATH environment variable.
+
+After script is finished running:
+Renamed files will be copied to a new directory ("renamed_date+time") within the directory containing the original files. The original files are not deleted. In the directory containing the original image files, a log file will be created (csv formatted) reporting success or failure for each file.
+
+The script has been tested on Fedora 19.

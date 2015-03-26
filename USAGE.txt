@@ -1,0 +1,21 @@
+reBar.pl vers. 0.9
+
+USAGE ON WINDOWS
+
+1. Modify variables in reBar.pl as described in INSTALLATION.txt.
+2. Open Command Prompt window or PowerShell.
+3. Change into directory containing files (chdir "C:\path\to\image\files").
+4. Run script (perl "C:\path\to\script\reBar.pl").
+
+
+USAGE OSX & LINUX
+
+1. Modify variables in reBar.pl as described in INSTALLATION.txt.
+2. Open a Terminal.
+3. Change into directory containing files (cd /User/joe/images/)
+4. Run the perl script by typing reBar.pl at the prompt. You may need to supply the path to the script, if it is not in your $PATH environment variable.
+
+After script is finished running:
+Renamed files will be copied to a new directory ("renamed_date+time") within the directory containing the original files. The original files are not deleted. In the directory containing the original image files, a log file will be created (csv formatted) reporting success or failure for each file.
+
+Depending on your hardware, it can take a few seconds (5 seconds on tested system) for a single 12 MB jpg file to be OCR'd and for the jpg and archival file to be copied. If multiple barcodes are in the original image (i.e., multiple barcodes on a sheet), a separate jpg image and dng image will be created for each barcode/specimen (this logic assumes one barcode per specimen).
